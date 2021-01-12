@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <script>
+        function check()
+        {
+            utype=document.getElementById('utype').value;
+            email=document.getElementById("email").value;
+            pwd=document.getElementById("pwd").value;
+            cpwd=document.getElementById('cpwd').value;
+            phn=document.getElementById('phn').value;
+            addr=document.getElementById('addr').value;
+            bg=document.getElementById('bg').value;
+            usr=document.getElementById('name').value;
+            regex=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if(regex.test(email)==false)
+                alert("Invalid email");
+            if( !email || !pwd ||!cpwd || !phn || !addr || !bg || !usr)
+                alert("Please fill all fields")
+            rphn=/^[0-9]/;
+            if((rphn.test(phn)==false) || (phn.length!=10))
+                alert("Invalid contact number");
+            if(pwd!==cpwd)
+                alert("Password doesn't match");
+            if(pwd.length<6)
+                alert("Password should be at least of 6 characters");
+            rname=/^[a-zA-Z0-9]/;
+            if((rname.test(usr)==false) || (rname.test(addr)==false))
+                alert("Invalid Username or address");
+             if((bg!=="A+") || (bg!=="A-") || (bg!=="B+") || (bd!=="B-)" || (bg!=="O+") || (bg!=="O-") || (bg!=="AB+") || (bg!== "AB-"))
+                alert("Unidentified blood group");
+            str1="donar";
+            str2="receiver";
+            if((utype.toLowerCase()!==str1) || (utype.toLowerCase()!==str2))
+               alert("User Type Shpould be either Donar or Receiver");   
+            
+        }
+    </script>
+    <body>
+        {{>header}}
+        <div class="main-content">
+            <br>Sign Up<br>
+            {{>messages}}
+            <form class="form" action="/register" method="POST" onsubmit="check()">
+                <label>Username  &nbsp;    &nbsp;   : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name"><br><br>
+                User Type   :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="utype" placeholder="Donar or Receiver"><br><br>
+                <label>Email  &nbsp; Id &nbsp;        :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email"><br><br>
+               <label> Password   &nbsp;      : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="pwd"><br><br>
+                <label>Confirm Password :</label> <input type="password" name="cpwd"><br><br>
+               <label> Phone Number           :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="phn"><br><br>
+                <label>Blood Group           :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="bg" placeholder="A+ or A- or B+ or B- or AB+ or AB- or O+ or O-"><br><br>
+              <label> User's Address          :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="addr"><br><br>
+                        <input type="submit" value="sign up"><br><br>
+            
+            Already have an account?<a href='login'><font color='grey'>Sign In</font></a>
+            </form>
+        </div>
+        {{>footer}}
+    </body>
+</html>    

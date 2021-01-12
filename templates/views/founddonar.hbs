@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        {{>userheader}}
+        <div class="main-content">
+           
+           
+           <table class="table">
+               <thead>
+               <tr>
+                   <th>Donar Name</th>
+                   <th>Email Id</th>
+                   <th>Phone Number</th>
+                   
+               </tr>
+               </thead>
+               {{#each data}}
+               <tr>
+                   <td>
+                       {{this.name}}
+                   </td>
+                   <td>{{this.email}}</td>
+                   <td>{{this.phone}}</td>
+               </tr>
+                {{/each}}
+           </table>
+        </div>
+        
+    </body>
+    

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        {{>header}}
+        <div class="main-content">
+            <br><br>Sign in
+            <br>{{>messages}}
+            <form class="form" method="POST" action="/login">
+                
+                <label>Email  &nbsp; Id         : &nbsp;</label> <input type="text" name="email"><br><br><br>
+               <label> Password         : </label><input type="password" name="pwd"><br><br><br>
+               <input type="submit" value="sign in"><br><br>
+              Don't have an account? <a href="register"><font color='grey'>Sign Up</font></a>
+            </form>
+        </div>
+        {{>footer}}
+    </body>
+</html>    

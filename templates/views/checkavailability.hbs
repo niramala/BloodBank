@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        {{>userheader}}
+        <div class="main-content">
+           
+           
+           <table class="table">
+               <thead>
+               <tr>
+                   <th>Blood group</th>
+                   <th>Available Unit</th>
+               </tr>
+               </thead>
+               {{#each data}}
+               <tr>
+                   <td>
+                       {{this.blood_group}}
+                   </td>
+                   <td>{{this.available_unit}}</td>
+               </tr>
+                {{/each}}
+           </table>
+        </div>
+        
+    </body>
+    

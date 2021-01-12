@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <script>
+    function check()
+        {
+            
+            bg=document.getElementById('bg').value;
+            if((bg!=="A+") || (bg!=="A-") || (bg!=="B+") || (bd!=="B-)" || (bg!=="O+") || (bg!=="O-") || (bg!=="AB+") || (bg!== "AB-"))
+                alert("Unidentified blood group");
+            
+        }
+    </script>
+    <body>
+        {{>userheader}}
+        <div class="main-content">
+            <br><br>Find Donar
+            <br>{{>messages}}
+            <form class="form" method="POST" action="/find" onsubmit="check()">
+                
+                <label>Blood  &nbsp; Group        : &nbsp;</label> <input type="text" name="bg" id="bg"><br><br><br>
+               <label>&nbsp;&nbsp;&nbsp;&nbsp; Address  &nbsp;&nbsp;&nbsp;      : &nbsp;&nbsp;&nbsp;</label><input type="text" name="addr"><br><br><br>
+               <input type="submit" value="find donar"><br><br>
+            </form>
+        </div>
+        {{>footer}}
+    </body>
+</html>    

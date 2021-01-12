@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <script>
+        function check()
+        {
+            au=document.getElementById('au').value;
+            bg=document.getElementById('bg').value;
+            if((bg!=="A+") || (bg!=="A-") || (bg!=="B+") || (bd!=="B-)" || (bg!=="O+") || (bg!=="O-") || (bg!=="AB+") || (bg!== "AB-"))
+                alert("Unidentified blood group");
+            rex=/^[0-9]/
+            if(rex.test(au)==false) 
+                alert("New available unit should be anumber");
+        }
+    </script>
+    <body>
+        {{>header}}
+        <div class="main-content">
+            <br><br>Update Blood Available Unit
+            <br>{{>messages}}
+            <form class="form" method="POST" action="/update" onsubmit="check()">
+                
+                <label>Blood  &nbsp;&nbsp;&nbsp; Group        :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <input type="text" name="bg" id="bg"><br><br><br>
+               <label> New Blood Available  Unit        : </label><input type="text" name="au" id="au"><br><br><br>
+               <input type="submit" value="update blood"><br><br>
+            </form>
+        </div>
+        {{>footer}}
+    </body>
+</html>    
